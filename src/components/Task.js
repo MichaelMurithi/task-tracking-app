@@ -2,9 +2,7 @@ import React from 'react'
 import {FaTimes} from 'react-icons/fa'
 
 const Task = ({task}) => {
-    const deleteTask = (id) =>{
-        console.log("Delete",id)
-    }
+   
 
     return (
         <div className='task'>

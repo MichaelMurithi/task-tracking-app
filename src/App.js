@@ -3,6 +3,9 @@ import { Header } from './components/Header';
 import Tasks from './components/Tasks';
 
 function App() {
+  const deleteTask = (id) =>{
+    console.log("Delete",id)
+}
   const tasks = [
     {
         id:1,
@@ -32,7 +35,7 @@ function App() {
   return (
     <div className="container">
      <Header user="Michael"/>
-     <Tasks toDos={tasks}/>
+     <Tasks toDos={tasks} onDelete={deleteTask}/>
     </div>
   );
 }
