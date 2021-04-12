@@ -1,11 +1,10 @@
 import './App.css';
+import {useState} from 'react'
 import { Header } from './components/Header';
 import Tasks from './components/Tasks';
 
 function App() {
-  const deleteTask = (id) =>{
-    console.log("Delete",id)
-}
+
   const tasks = [
     {
         id:1,
@@ -25,17 +24,17 @@ function App() {
         day:"April 12 at 18:00",
         rreminder:"True"
     },
-    {
-        id:4,
-        text: "Take Supper",
-        day:"April 12 at 18:00",
-        rreminder:"false"
-    }
+   
 ]
+  const [toDos,setTasks] = useState(tasks)
+
+  const deleteTask = (id) =>{
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
   return (
     <div className="container">
      <Header user="Michael"/>
-     <Tasks toDos={tasks} onDelete={deleteTask}/>
+     <Tasks toDos={toDos} onDelete={deleteTask}/>
     </div>
   );
 }

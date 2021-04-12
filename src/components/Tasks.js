@@ -1,14 +1,13 @@
 import React from 'react'
-import {useState,useEffect} from 'react'
 import Task from './Task'
 
-const Tasks = ({toDos}) => {
-    const [tasks,setTasks] = useState(toDos)
+const Tasks = ({toDos,onDelete}) => {
+    const tasks = toDos
     return (
         <>
          {
-            tasks.map((task) => {
-                return <Task task={task} key={task.id}/>
+            tasks.map((task,index) => {
+                return <Task task={task} key={index} onDelete={onDelete}/>
             })
         }
         </>
