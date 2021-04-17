@@ -1,15 +1,21 @@
-function counter(state,action){
-    if(typeof state === 'undefined'){
-        return 0
-    }
-    if(action.type === 'INCREAMENT'){
-        return state + 1;
-    } else if(action.type === 'DECREAMENT'){
-        return state -1;
-    }else {
-        return state
+const {createStore} = require('redux');
+
+const counter = (state=0,action) =>{
+    switch (action.type){
+        case 'INCREAMENT':
+            return state +1;
+        case 'DECREAMENT':
+            return state -1
+        default:
+            return state;
     }
 }
 
-module.exports = counter;
+const store = createStore(counter);
 
+console.log(store.getState());
+
+store.dispatch({type:'INCREAMENT'})
+console.log(store.getState)
+
+module.exports = counter
